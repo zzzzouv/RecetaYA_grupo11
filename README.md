@@ -77,6 +77,17 @@ Funciones principales:
 ### MS-INV-01
 Encargado de la gestión de medicamentos, stock y reserva de inventario.
 
+Funciones principales:
+
+- CRUD de medicamentos.
+- Consulta de disponibilidad y stock por sucursal.
+- Reserva de stock para recetas médicas.
+- Descuento definitivo de stock tras dispensación.
+- Manejo de errores.
+- Persistencia con H2.
+- Puerto: `8083`
+- URL base: `http://localhost:8083/api/inventario`
+
 ### MS-DISP-01
 Encargado del proceso de dispensación de recetas por parte del farmacéutico.
 
