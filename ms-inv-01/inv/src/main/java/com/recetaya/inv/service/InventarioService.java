@@ -259,6 +259,10 @@ public class InventarioService {
         return reservaRecetaRepository.save(reserva);
     }
 
+    public List<ReservaReceta> listarReservasRecetas() {
+        return reservaRecetaRepository.findAll();
+    }
+
     public ReservaReceta obtenerReservaPorIdReceta(Long idReceta) {
         return reservaRecetaRepository.findByIdReceta(idReceta)
             .orElseThrow(() -> new IllegalArgumentException("No existe reserva para la receta ID " + idReceta));

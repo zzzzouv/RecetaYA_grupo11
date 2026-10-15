@@ -100,6 +100,11 @@ public class InventarioController {
         return ResponseEntity.status(HttpStatus.CREATED).body(reserva);
     }
 
+    @GetMapping("/reservas")
+    public ResponseEntity<List<ReservaReceta>> listarReservasRecetas() {
+        return ResponseEntity.ok(inventarioService.listarReservasRecetas());
+    }
+
     @GetMapping("/reservas/receta/{idReceta}")
     public ResponseEntity<ReservaReceta> obtenerReservaPorReceta(@PathVariable Long idReceta) {
         return ResponseEntity.ok(inventarioService.obtenerReservaPorIdReceta(idReceta));
