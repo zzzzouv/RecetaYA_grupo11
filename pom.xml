@@ -15,6 +15,7 @@
     <modules>
         <module>ms-auth-01/auth</module>
         <module>ms-rec-01/rec</module>
+        <module>ms-inv-01/inv</module>
     </modules>
 
 </project>

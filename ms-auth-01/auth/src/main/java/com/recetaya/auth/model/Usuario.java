@@ -1,5 +1,7 @@
 package com.recetaya.auth.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -24,13 +26,15 @@ public class Usuario {
 
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
+    private Long id;
 
     private String nombre;
 
     @Column(unique = true, nullable = false)
     private String email; 
 
+    @Column(nullable = false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String contrasena;
 
     @Enumerated(EnumType.STRING)
