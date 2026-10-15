@@ -1,10 +1,11 @@
 package com.recetaya.disp.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.recetaya.disp.service.DispensacionService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
+import com.recetaya.disp.model.Dispensacion;
+
 
 @RestController
 @RequestMapping("/api/dispensaciones")
@@ -19,5 +20,20 @@ public class DispensacionController {
     @GetMapping("/reservas")
     public ResponseEntity<String> listarReservas() {
         return ResponseEntity.ok(dispensacionService.listarReservas());
+    }
+
+    @PostMapping("/dispensar/{idReceta}/{idFarmaceutico}")
+    public ResponseEntity<?> dispensacionReceta(
+        @PathVariable Long idReceta, 
+        @PathVariable Long idFarmaceutico,
+        @RequestHeader("X-ROLE") String rol
+    ) {
+
+        if(!rol.equals("FARMACEUTICO")) {
+            return ResponseEntity
+                   .status(HttpStatus.FORBIDDEN)
+                   .body("Solo los Farmaceuticos pueden dispensar");
+        }
+        return ResponseEntity.ok(dispensacionService.dispensacionReceta(idReceta, idFarmaceutico));
     }
 }
