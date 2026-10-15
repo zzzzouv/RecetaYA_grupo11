@@ -91,6 +91,17 @@ Funciones principales:
 ### MS-DISP-01
 Encargado del proceso de dispensación de recetas por parte del farmacéutico.
 
+Funciones principales:
+
+- Registro y gestión de dispensaciones de recetas médicas.
+- Validación de rol mediante `X-ROLE` (solo `FARMACEUTICO`).
+- Validación de estado de receta previa a dispensación (`STOCK_RESERVADO`).
+- Cierre de ciclo: actualización a estado `DISPENSADA`.
+- Manejo de errores.
+- Persistencia con H2.
+- Puerto: `8084`
+- URL base: `http://localhost:8084/api/dispensaciones`
+
 ---
 
 ## Tecnologías utilizadas
