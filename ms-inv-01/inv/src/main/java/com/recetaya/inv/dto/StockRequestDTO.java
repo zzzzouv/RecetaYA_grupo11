@@ -8,7 +8,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class StockRequestDTO {
     private Long idMedicamento;
     private Long idSucursal;

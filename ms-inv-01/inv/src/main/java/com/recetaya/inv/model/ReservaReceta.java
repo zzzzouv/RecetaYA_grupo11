@@ -22,7 +22,6 @@ import jakarta.persistence.Enumerated;
 @Getter 
 @Setter 
 @NoArgsConstructor 
-@AllArgsConstructor 
 public class ReservaReceta {
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)

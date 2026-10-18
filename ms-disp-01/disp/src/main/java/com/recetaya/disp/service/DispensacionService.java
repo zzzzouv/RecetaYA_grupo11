@@ -65,26 +65,33 @@ public class DispensacionService {
     public String listarReservas() {
 
         RestClient restClient = RestClient.create();
-        
+
         return restClient.get()
                .uri("http://localhost:8083/api/inventario/reservas")
-               .retrieve().body(String.class);
+               .retrieve()
+               .body(String.class);
     }
 
     public Dispensacion dispensacionReceta(Long idReceta, Long idFarmaceutico) {
 
         RestClient restClient = RestClient.create();
-        String reservationId = restClient.put()
+
+        restClient.put()
                .uri("http://localhost:8083/api/inventario/reservas/receta/{idReceta}/dispensar", idReceta)
-               .retrieve().body(String.class);
+               .retrieve()
+               .body(String.class);
+
+        restClient.put()
+               .uri("http://localhost:8082/api/recetas/{idReceta}/estado/DISPENSADA", idReceta)
+               .retrieve()
+               .body(String.class);
 
         Dispensacion dispensacion = new Dispensacion();
         dispensacion.setRecetaId(idReceta);
         dispensacion.setFarmaceuticoId(idFarmaceutico);
         dispensacion.setFecha(LocalDateTime.now());
         dispensacion.setEstado(EstadoDispensacion.DISPENSADA);
-        
-        return dispensacionRepository.save(dispensacion);
 
+        return dispensacionRepository.save(dispensacion);
     }
 }

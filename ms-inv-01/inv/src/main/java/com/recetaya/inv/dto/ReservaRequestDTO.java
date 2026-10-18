@@ -9,7 +9,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class ReservaRequestDTO {
     private Long idReceta;
     private Long idSucursal;

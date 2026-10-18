@@ -22,6 +22,11 @@ public class DispensacionController {
         return ResponseEntity.ok(dispensacionService.listarReservas());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Dispensacion> buscarPorId(@PathVariable Long id) {
+        return ResponseEntity.ok(dispensacionService.buscarPorId(id));
+    }
+
     @PostMapping("/dispensar/{idReceta}/{idFarmaceutico}")
     public ResponseEntity<?> dispensacionReceta(
         @PathVariable Long idReceta, 

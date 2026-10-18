@@ -1,30 +1,33 @@
 package com.recetaya.rec.model;
 
-import jakarta.annotation.Generated;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
 import jakarta.persistence.*;
 
-@Entity 
-@Table (name = "recetas")
-@Getter 
-@Setter 
-@NoArgsConstructor 
-@AllArgsConstructor 
-
+@Entity
+@Table(name = "recetas")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Receta {
-    
-    @Id 
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String paciente;
+
+    private Long sucursalId;
+
     private String sucursal;
+
     private LocalDateTime fecha;
 
     @Enumerated(EnumType.STRING)
@@ -36,5 +39,4 @@ public class Receta {
         orphanRemoval = true
     )
     private List<DetalleReceta> detalles = new ArrayList<>();
-
 }

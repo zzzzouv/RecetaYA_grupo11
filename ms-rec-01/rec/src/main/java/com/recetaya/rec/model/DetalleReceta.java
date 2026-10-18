@@ -9,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 
 public class DetalleReceta {
 

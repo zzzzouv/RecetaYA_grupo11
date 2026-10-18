@@ -15,7 +15,6 @@ import com.recetaya.disp.model.EstadoDispensacion;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 
 public class Dispensacion {
     @Id
