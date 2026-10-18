@@ -38,8 +38,17 @@ public class RecetaController {
     }
 
     @GetMapping("/estado/{estado}")
-    public List<Receta> listarPorEstado(@PathVariable EstadoReceta estado) {
-        return recetaService.listarPorEstado(estado);
+    public ResponseEntity<?> listarPorEstado(
+            @PathVariable EstadoReceta estado,
+            @RequestHeader("X-ROLE") String rol) {
+
+        if (estado == EstadoReceta.STOCK_RESERVADO && !rol.equals("FARMACEUTICO")) {
+            return ResponseEntity
+                    .status(HttpStatus.FORBIDDEN)
+                    .body("Solo los farmacéuticos pueden consultar recetas con stock reservado");
+        }
+
+        return ResponseEntity.ok(recetaService.listarPorEstado(estado));
     }
 
     @PostMapping
@@ -70,6 +79,16 @@ public class RecetaController {
         if (receta == null) {
             return ResponseEntity.notFound().build();
         }
+
+        return ResponseEntity.ok(receta);
+    }
+
+    @PutMapping("/{id}/estado/{estado}")
+    public ResponseEntity<Receta> actualizarEstado(
+            @PathVariable Long id,
+            @PathVariable EstadoReceta estado) {
+
+        Receta receta = recetaService.actualizarEstado(id, estado);
 
         return ResponseEntity.ok(receta);
     }
