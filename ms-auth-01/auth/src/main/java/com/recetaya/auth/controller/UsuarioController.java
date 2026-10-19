@@ -1,6 +1,6 @@
 package com.recetaya.auth.controller;
 
-import com.recetaya.auth.AuthApplication;
+
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -16,12 +16,11 @@ import com.recetaya.auth.service.UsuarioService;
 @RequestMapping("/api/usuarios")
 public class UsuarioController {
 
-    private final AuthApplication authApplication;
+    
     private final UsuarioService usuarioService;
 
-    public UsuarioController(UsuarioService usuarioService, AuthApplication authApplication) {
+    public UsuarioController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
-        this.authApplication = authApplication;
     }
 
     @GetMapping

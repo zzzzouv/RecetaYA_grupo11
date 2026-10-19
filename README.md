@@ -104,6 +104,51 @@ Funciones principales:
 
 ---
 
+## Guía de Ejecución
+
+### 1. Clonar el repositorio
+git clone <URL>
+
+### 2. Compilar y Validar
+Desde la raíz del proyecto (~/RecetaYA_grupo11) ejecutar:
+mvn clean test 
+mvn clean package
+
+### 3. Levantar los Microservicios
+Ejecutar cada microservicio en una terminal independiente.
+
+Ejemplo:
+cd "ms-auth-01/auth" o "ms-rec-01/rec" etc..
+./mvnw spring-boot:run
+
+Repetir el proceso para cada microservicio.
+
+#### Puertos
+-ms-auth-01: 8081
+-ms-rec-01: 8082
+-ms-inv-01: 8083
+-ms-disp-01: 8084
+
+#### Configuración JDBC de cada servicio
+-ms-auth-01: jdbc:h2:file:./data/authdb
+-ms-rec-01: jdbc:h2:file:./data/recetasdb
+-ms-inv-01: jdbc:h2:file:./data/inventariodb
+-ms-disp-01: jdbc:h2:file:./data/dispensaciondb
+
+La consola H2 de cada microservicio se encuentra en:
+http://localhost:<puerto>/h2-console
+
+### 4. Pruebas con Postman
+Las colecciones de endpoints se encuentran organizadas por microservicio en el directorio postman/.
+
+#### Cómo importarlas:
+1. Abrir Postman.
+2. Seleccionar Import.
+3. Buscar y seleccionar el archivo .postman_collection.json correspondiente en el directorio postman/.
+4. Importar cada una de las 4 colecciones.
+
+---
+
 ## Tecnologías utilizadas
 
 - Java 21

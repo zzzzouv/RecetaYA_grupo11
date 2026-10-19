@@ -3,12 +3,10 @@ package com.recetaya.disp.model;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import com.recetaya.disp.model.EstadoDispensacion;
 
 @Entity
 @Table (name = "dispensaciones")
