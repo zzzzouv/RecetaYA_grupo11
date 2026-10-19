@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.recetaya.auth.model.Usuario;
 import com.recetaya.auth.service.UsuarioService;
+import jakarta.validation.Valid;
 
 
 
@@ -53,7 +54,7 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<Usuario> crearUsuario(@RequestBody Usuario usuario) {
+    public ResponseEntity<Usuario> crearUsuario(@Valid @RequestBody Usuario usuario) {
         Usuario nuevoUsuario = usuarioService.guardarUsuario(usuario);
 
         return ResponseEntity
