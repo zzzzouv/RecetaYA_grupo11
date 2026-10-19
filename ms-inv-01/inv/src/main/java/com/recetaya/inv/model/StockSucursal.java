@@ -1,8 +1,6 @@
 package com.recetaya.inv.model;
 
 import jakarta.persistence.FetchType;
-import com.recetaya.inv.model.Sucursal;
-import com.recetaya.inv.model.Medicamento;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,7 +9,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

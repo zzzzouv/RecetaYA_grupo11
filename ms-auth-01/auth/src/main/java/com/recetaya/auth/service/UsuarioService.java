@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import com.recetaya.auth.model.Usuario;
 import com.recetaya.auth.repository.UsuarioRepository;
 
-import jakarta.validation.constraints.Email;
 
 import com.recetaya.auth.exception.UsuarioException;
 import com.recetaya.auth.exception.CredencialException;
