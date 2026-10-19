@@ -1,0 +1,287 @@
+{
+  "info": {
+    "_postman_id": "a0149673-6b8c-4bf5-b228-7dcb6146d161",
+    "name": "MS-INV-01",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "59012056",
+    "_collection_link": "https://go.postman.co/collection/59012056-a0149673-6b8c-4bf5-b228-7dcb6146d161?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Crear medicamento",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nombreComercial\": \"Paracetamol 500mg\",\r\n  \"descripcionPresentacion\": \"Caja de 20 comprimidos\",\r\n  \"precioUnitario\": 2500\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8083/api/inventario/medicamentos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8083",
+          "path": [
+            "api",
+            "inventario",
+            "medicamentos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar medicamentos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8083/api/inventario/medicamentos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8083",
+          "path": [
+            "api",
+            "inventario",
+            "medicamentos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Buscar medicamento por id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8083/api/inventario/medicamentos/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8083",
+          "path": [
+            "api",
+            "inventario",
+            "medicamentos",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear sucursal",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nombreSucursal\": \"Sucursal Sucursal Norte\",\r\n  \"ubicacion\": \"Santiago\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8083/api/inventario/sucursales",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8083",
+          "path": [
+            "api",
+            "inventario",
+            "sucursales"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar sucursales",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Buscar sucursal por id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Agregar stock",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"idMedicamento\": 2,\r\n  \"idSucursal\": 3,\r\n  \"cantidad\": 20\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8083/api/inventario/stock",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8083",
+          "path": [
+            "api",
+            "inventario",
+            "stock"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Consultar stock por sucursal",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8083/api/inventario/stock/sucursal/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8083",
+          "path": [
+            "api",
+            "inventario",
+            "stock",
+            "sucursal",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear reserva",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"idReceta\": 100,\r\n  \"idSucursal\": 3,\r\n  \"items\": [\r\n    {\r\n      \"idMedicamento\": 2,\r\n      \"cantidad\": 4\r\n    }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8083/api/inventario/reservas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8083",
+          "path": [
+            "api",
+            "inventario",
+            "reservas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar reservas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8083/api/inventario/reservas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8083",
+          "path": [
+            "api",
+            "inventario",
+            "reservas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Buscar reserva por receta",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8083/api/inventario/reservas/receta/100",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8083",
+          "path": [
+            "api",
+            "inventario",
+            "reservas",
+            "receta",
+            "100"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Confirmar dispensación de reserva",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8083/api/inventario/reservas/receta/100/dispensar",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8083",
+          "path": [
+            "api",
+            "inventario",
+            "reservas",
+            "receta",
+            "100",
+            "dispensar"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
